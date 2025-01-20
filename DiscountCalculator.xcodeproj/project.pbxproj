@@ -6,17 +6,20 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		66027C802D3E98AE002E20E0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66027C7A2D3E98AE002E20E0 /* Preview Assets.xcassets */; };
+		66027C812D3E98AE002E20E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66027C7C2D3E98AE002E20E0 /* Assets.xcassets */; };
+		66027C822D3E98AE002E20E0 /* CalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66027C7D2D3E98AE002E20E0 /* CalculatorView.swift */; };
+		66027C832D3E98AE002E20E0 /* DiscountCalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66027C7E2D3E98AE002E20E0 /* DiscountCalculatorApp.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		66027C692D3E989B002E20E0 /* DiscountCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiscountCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		66027C7A2D3E98AE002E20E0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		66027C7C2D3E98AE002E20E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		66027C7D2D3E98AE002E20E0 /* CalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorView.swift; sourceTree = "<group>"; };
+		66027C7E2D3E98AE002E20E0 /* DiscountCalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountCalculatorApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		66027C6B2D3E989B002E20E0 /* DiscountCalculator */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = DiscountCalculator;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		66027C662D3E989B002E20E0 /* Frameworks */ = {
@@ -32,7 +35,7 @@
 		66027C602D3E989B002E20E0 = {
 			isa = PBXGroup;
 			children = (
-				66027C6B2D3E989B002E20E0 /* DiscountCalculator */,
+				66027C7F2D3E98AE002E20E0 /* DiscountCalculator */,
 				66027C6A2D3E989B002E20E0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +46,33 @@
 				66027C692D3E989B002E20E0 /* DiscountCalculator.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		66027C7B2D3E98AE002E20E0 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				66027C7A2D3E98AE002E20E0 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		66027C7F2D3E98AE002E20E0 /* DiscountCalculator */ = {
+			isa = PBXGroup;
+			children = (
+				66027C7B2D3E98AE002E20E0 /* Preview Content */,
+				66027C7C2D3E98AE002E20E0 /* Assets.xcassets */,
+				66027C7E2D3E98AE002E20E0 /* DiscountCalculatorApp.swift */,
+				66027C842D3E99F7002E20E0 /* View */,
+			);
+			path = DiscountCalculator;
+			sourceTree = "<group>";
+		};
+		66027C842D3E99F7002E20E0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				66027C7D2D3E98AE002E20E0 /* CalculatorView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -59,9 +89,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				66027C6B2D3E989B002E20E0 /* DiscountCalculator */,
 			);
 			name = DiscountCalculator;
 			packageProductDependencies = (
@@ -109,6 +136,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66027C802D3E98AE002E20E0 /* Preview Assets.xcassets in Resources */,
+				66027C812D3E98AE002E20E0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +148,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66027C822D3E98AE002E20E0 /* CalculatorView.swift in Sources */,
+				66027C832D3E98AE002E20E0 /* DiscountCalculatorApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
