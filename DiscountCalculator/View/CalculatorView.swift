@@ -13,35 +13,71 @@ struct CalculatorView: View {
     
     @State var discountPercentage : Double = 1.0
     
-    @State var discountedPrice = ""
-    
     @State var feedback = ""
+    
+    var discountedPrice: Double{
+        return originalPrice - (originalPrice * discountPercentage / 100)
+    }
+    
+    var moneySaved: Double{
+        return originalPrice * discountPercentage / 100
+    }
+    
     
     var body: some View {
         
         NavigationStack{
             VStack() {
                 
-            
-                
                 Text("Did you save money today? ")
+                    .font(.headline)
                 
-                var discountedPrice: Double {
-                    guard let  originalPrice = Double(originalPrice) else {
-                        return 0.0
+                TextField("Enter the food prices here.", text: $originalPrice)
+                
+                Slider(
+                    value: $discountPercentage,
+                    in: 1...100)
+                
+                HStack{
+                    Button {
+                        prices()
+                    } label: {
+                        Text("Determine Price")
                     }
-                    return originalPrice - (originalPrice * discountPercentage / 100)
+                    .buttonStyle(.borderedProminent)
+                    
+                    Button {
+                    reset()
+                    } label: {
+                        Text("reset")
+                    }
+                    .buttonStyle(.borderedProminent)
                 }
-                
+            }
+            
+            .navigationTitle("Discount Calculator")
+        }
+    }
+        
+        func prices(){
+            
+            guard let prices = Double(originalPrice) else {
+                feedback = "Please provide an number."
+                return
                 
             }
-            .navigationTitle("Discount Calculator")
+        
+            func reset(){
+                
+            originalPrice = ""
+            discountPercentage : Double = 1.0
+            feedback = ""
+                
+            }
         }
         
     }
-    
-}
-    #Preview {
-        CalculatorView()
-    }
 
+#Preview {
+    CalculatorView()
+}
