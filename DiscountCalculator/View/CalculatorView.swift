@@ -19,24 +19,28 @@ struct CalculatorView: View {
     
     var body: some View {
         
-        VStack() {
+        NavigationStack{
+            VStack() {
+                
             
-            Text("Discount Calculator")
-            
-            Text("Did you save money today? ")
-            
-            var discountedPrice: Double {
-                  guard let  originalPrice = Double(originalPrice) else {
-                      return 0.0
-                  }
-                  return originalPrice - (originalPrice * discountPercentage / 100)
-              }
-              
-            
+                
+                Text("Did you save money today? ")
+                
+                var discountedPrice: Double {
+                    guard let  originalPrice = Double(originalPrice) else {
+                        return 0.0
+                    }
+                    return originalPrice - (originalPrice * discountPercentage / 100)
+                }
+                
+                
+            }
+            .navigationTitle("Discount Calculator")
         }
+        
     }
-}
     
+}
     #Preview {
         CalculatorView()
     }
