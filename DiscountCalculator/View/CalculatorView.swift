@@ -8,15 +8,36 @@
 import SwiftUI
 
 struct CalculatorView: View {
-   
-    @State var originalPrice = " "
     
-    @State var discountPercentage : Double = 1
+    @State var originalPrice = ""
     
-    @State var feedback = " "
+    @State var discountPercentage : Double = 1.0
     
+    @State var discountedPrice = ""
+    
+    @State var feedback = ""
+    
+    var body: some View {
+        
+        VStack() {
+            
+            Text("Discount Calculator")
+            
+            Text("Did you save money today? ")
+            
+            var discountedPrice: Double {
+                  guard let  originalPrice = Double(originalPrice) else {
+                      return 0.0
+                  }
+                  return originalPrice - (originalPrice * discountPercentage / 100)
+              }
+              
+            
+        }
+    }
 }
+    
+    #Preview {
+        CalculatorView()
+    }
 
-#Preview {
-    CalculatorView()
-}
