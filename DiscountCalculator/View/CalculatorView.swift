@@ -11,24 +11,47 @@ struct CalculatorView: View {
     
     @State var originalPrice = ""
     
+    @State var discountedPrice : Double = 1.0
+    
     @State var discountPercentage : Double = 1.0
+    
+    @State var moneySaved : Double  = 1.0
     
     @State var feedback = ""
     
-    
+
     var body: some View {
         
         NavigationStack{
+            
             VStack() {
                 
                 Text("Did you save money today? ")
                     .font(.headline)
                 
-                TextField("Enter the food prices here.", text: $originalPrice)
+                Spacer()
                 
-                Slider(
-                    value: $discountPercentage,
-                    in: 1...100)
+                // Textfield and Slider
+                
+                TextField("Enter the food prices here.", text: $originalPrice)
+                Spacer()
+                    
+                    VStack{
+                        Text("Discount  number:\(discountPercentage.formatted(.number.precision(.fractionLength(1))))")
+                        
+                        Slider(
+                            value: $discountPercentage,
+                            in: 1...100)
+                    }
+                Spacer()
+                
+                
+               //Feedback
+                
+                Text(feedback)
+
+                            
+                //Button
                 
                 HStack{
                     Button {
@@ -37,48 +60,49 @@ struct CalculatorView: View {
                         Text("Determine Price")
                     }
                     .buttonStyle(.borderedProminent)
-                    
+                  
                     Button {
                         reset()
                     } label: {
                         Text("reset")
                     }
                     .buttonStyle(.borderedProminent)
+                    .tint(.red)
                 }
+                Spacer()
+               
+                //Output
+                
+                Text("The final price is \(discountedPrice.formatted(.number.precision(.fractionLength(2))))!");
+                
+                Text("You saved \(moneySaved.formatted(.number.precision(.fractionLength(2)))) today!")
+                
+                Spacer()
+                
+                    .navigationTitle("Discount Calculator")
+            }
+        }
+    }
+    
+        func calculatedPrices(){
+            
+            guard let prices = Double(originalPrice),prices > 0 else {
+                feedback = "Please provide a positive number."
+                return
             }
             
-            .navigationTitle("Discount Calculator")
-        }
-    }
+            discountedPrice = prices - (prices * discountPercentage / 100)
     
-    func calculatedPrices(){
-        
-        guard let prices = Double(originalPrice),  prices > 0 else {
-            feedback = "Please provide an number."
-            return
+            moneySaved = prices * discountPercentage / 100
         }
         
-        
-        var discountedPrice: Double{
-            return prices - (prices * discountPercentage / 100)
-        }
-        
-        var moneySaved: Double{
-            return prices * discountPercentage / 100
+        func reset(){
+            
+            originalPrice = ""
+            feedback = ""
+            
         }
 }
-        
-    
-    
-    func reset(){
-        
-        originalPrice = ""
-        feedback = ""
-        
-    }
-}
-
-
 
 #Preview {
     CalculatorView()
