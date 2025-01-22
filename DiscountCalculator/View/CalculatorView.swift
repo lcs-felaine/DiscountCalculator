@@ -15,14 +15,6 @@ struct CalculatorView: View {
     
     @State var feedback = ""
     
-    var discountedPrice: Double{
-        return originalPrice - (originalPrice * discountPercentage / 100)
-    }
-    
-    var moneySaved: Double{
-        return originalPrice * discountPercentage / 100
-    }
-    
     
     var body: some View {
         
@@ -40,14 +32,14 @@ struct CalculatorView: View {
                 
                 HStack{
                     Button {
-                        prices()
+                        calculatedPrices()
                     } label: {
                         Text("Determine Price")
                     }
                     .buttonStyle(.borderedProminent)
                     
                     Button {
-                    reset()
+                        reset()
                     } label: {
                         Text("reset")
                     }
@@ -58,25 +50,35 @@ struct CalculatorView: View {
             .navigationTitle("Discount Calculator")
         }
     }
+    
+    func calculatedPrices(){
         
-        func prices(){
-            
-            guard let prices = Double(originalPrice) else {
-                feedback = "Please provide an number."
-                return
-                
-            }
-        
-            func reset(){
-                
-            originalPrice = ""
-            discountPercentage : Double = 1.0
-            feedback = ""
-                
-            }
+        guard let prices = Double(originalPrice),  prices > 0 else {
+            feedback = "Please provide an number."
+            return
         }
         
+        
+        var discountedPrice: Double{
+            return prices - (prices * discountPercentage / 100)
+        }
+        
+        var moneySaved: Double{
+            return prices * discountPercentage / 100
+        }
+}
+        
+    
+    
+    func reset(){
+        
+        originalPrice = ""
+        feedback = ""
+        
     }
+}
+
+
 
 #Preview {
     CalculatorView()
